@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<button type="button" onclick="location.href='/admin/new-user'">Add New User</button>
+<button type="button" onclick="location.href='/admin/logout'" class="btn btn-primary ms-auto float-end">Logout</button>
+<br>
+<br>
+<form>
+    <input type="search" name="search" placeholder="search here">
+    <input type="submit" name="button" >
+</form>
+
+
+<body>
+    <table class="table table-striped">
+        
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                <% if(users.length > 0) { %>
+                    <% for(let i = 0; i < users.length; i++) { %>
+                        <tr>
+                            <th scope="row"><%= i + 1 %></th>
+                            <td><%= users[i].name %></td>
+                            <td><%= users[i].email %></td>
+                            <td><%= users[i].phone %></td>
+                            <td><button type="button"  onclick="location.href='/admin/edit-user?id=<%= users[i]._id %>'">Update</button></td>
+                            <td><button type="button" onclick="alertbox();location.href='/admin/delete-user?id=<%= users[i]._id %>'">Delete</button>
+                            </td>
+                        </tr>
+                    <% } %>
+                <% } %>
+            </tbody>
+          </table>
+          <script>
+            function alertbox(){
+                alert("Are you sure want to delete?")
+            }
+          </script>
+  
+</body>
+
+</html>

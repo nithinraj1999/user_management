@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  
+</head>
+<body>
+
+    <h1>Add New User</h1> 
+    <div class="w-25 p-3   d-flex align-item-center justify-content-center mx-auto my-auto box">
+        <form method="post" action="new-user">
+          
+          <div class="mb-3">
+            <input type="text" class="form-control inp"pattern="^\S(.*\S)?$" required placeholder="Full Name" name="name">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control inp" minlength="10" maxlength="10" pattern="^\S(.*\S)?$" required placeholder="phone" name="phone">
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control inp" pattern="^\S(.*\S)?$" id="exampleInputEmail1" required aria-describedby="emailHelp"
+              placeholder="email" name="email">
+          </div>
+          <div class="mb-3">
+            <input type="password" minlength="6" class="form-control inp" pattern="^\S(.*\S)?$" id="exampleInputPassword1" required placeholder="password"
+              name="password">
+          </div>
+          <div>
+            <button type="submit" class="btn btn-dark">Add User</button>
+
+          </div>
+          <div class="  d-flex justify-content-center">
+            <% if(typeof exist !="undefined"){ %>
+            <h4><%= exist %></h4>
+            <%} %>
+            
+          </div>
+          
+        </form>
+      </div>
+    
+</body>
+</html>
